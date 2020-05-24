@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawerLayout">
+    tools:context=".DevActivity"
+    android:id="@+id/drawerLayout" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This is main activity"
+            android:text="This is dev activity"
             android:textAlignment="center"
             android:layout_centerVertical="true"
             android:textColor="#000"

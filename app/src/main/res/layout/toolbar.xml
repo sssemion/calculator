@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?android:actionBarSize"
+    android:background="@color/colorPrimary"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    >
+
+    <Button
+        android:layout_width="?android:actionBarSize"
+        android:layout_height="match_parent"
+        android:id="@+id/navButton"
+        android:background="@drawable/ic_drawer"
+        android:backgroundTint="#fff"/>
+
+</Toolbar>

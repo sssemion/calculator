@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">calculator</string>
+    <string name="app_name">Калькулятор</string>
+    <string name="main_mode">Обычный</string>
+    <string name="dev_mode">Программист</string>
+    <string name="engineer_mode">Инженер</string>
+    <string name="drawer_open">Открыть</string>
+    <string name="drawer_close">Скрыть</string>
 </resources>
