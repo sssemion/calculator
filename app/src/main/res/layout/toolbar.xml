@@ -13,6 +13,6 @@
         android:layout_height="match_parent"
         android:id="@+id/navButton"
         android:background="@drawable/ic_drawer"
-        android:backgroundTint="#fff"/>
+        android:backgroundTint="#fff" />
 
 </Toolbar>

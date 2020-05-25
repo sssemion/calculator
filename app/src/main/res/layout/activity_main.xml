@@ -18,6 +18,7 @@
             android:id="@+id/activity_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="?android:actionBarSize"
             android:orientation="vertical"
             android:padding="16dp"
             tools:layout_editor_absoluteX="0dp"
