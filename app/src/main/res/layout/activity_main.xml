@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,188 +12,259 @@
         android:orientation="vertical"
         android:padding="16dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="205dp">
+        tools:layout_editor_absoluteY="233dp">
 
         <LinearLayout
-            android:id="@+id/result"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:id="@+id/result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/resultField"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/operationField"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="30sp" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/resultField"
-                android:layout_width="0dp"
+                android:id="@+id/numberField"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="18sp" />
+                android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/operationField"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/numberField"
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <androidx.gridlayout.widget.GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            app:columnCount="4"
-            app:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center_horizontal"
+            android:alignmentMode="alignMargins"
+            android:columnCount="4"
+            android:orientation="horizontal">
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnSpan="1"
+
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onClearClick"
                 android:text="C"
-
-                app:layout_columnSpan="1"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="%"
-
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onSignClick"
                 android:text="+/-"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="7"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="8"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="9"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="/"
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="0"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="4"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="5"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="6"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="*"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="1"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="1"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="2"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="3"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_row="2"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="-"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="2"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text=","
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onNumberClick"
                 android:text="0"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="+"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
             <Button
+                android:layout_row="3"
+                android:layout_rowSpan="2"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:maxWidth="0dip"
+                android:minWidth="0dip"
                 android:onClick="onOperationClick"
                 android:text="="
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_row="3"
-                app:layout_rowSpan="2"
-                app:layout_rowWeight="1" />
+                android:textSize="30sp" />
 
-        </androidx.gridlayout.widget.GridLayout>
+        </GridLayout>
 
     </LinearLayout>
 
