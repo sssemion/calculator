@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_main_mode"
+            android:title="@string/main_mode"
+            android:onClick="changeMode" />
+        <item
+            android:id="@+id/nav_dev"
+            android:icon="@drawable/ic_dev_mode"
+            android:title="@string/dev_mode"
+            android:onClick="changeMode" />
+        <item
+            android:id="@+id/nav_engineer"
+            android:icon="@drawable/ic_engineer_mode"
+            android:title="@string/engineer_mode"
+            android:onClick="changeMode" />
+    </group>
+</menu>

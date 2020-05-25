@@ -1,7 +1,5 @@
 package com.sssemion.calculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +8,7 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ParentNavigationActivity {
 
     TextView resultField; // текстовое поле для вывода результата
     TextView numberField;   // поле для ввода числа
