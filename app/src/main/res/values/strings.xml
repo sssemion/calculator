@@ -5,4 +5,23 @@
     <string name="engineer_mode">Инженер</string>
     <string name="drawer_open">Открыть</string>
     <string name="drawer_close">Скрыть</string>
+    <string name="operationClear">C</string>
+    <string name="operationPercent">%</string>
+    <string name="operationSignSwitch">+/-</string>
+    <string name="digit7">7</string>
+    <string name="digit8">8</string>
+    <string name="digit9">9</string>
+    <string name="operationDivide">/</string>
+    <string name="digit4">4</string>
+    <string name="digit5">5</string>
+    <string name="digit6">6</string>
+    <string name="operationMultiply">*</string>
+    <string name="digit1">1</string>
+    <string name="digit2">2</string>
+    <string name="digit3">3</string>
+    <string name="operationSubtract">-</string>
+    <string name="signComma">,</string>
+    <string name="digit0">0</string>
+    <string name="operationAdd">+</string>
+    <string name="operationEquals">=</string>
 </resources>

@@ -10,9 +10,8 @@ import java.math.RoundingMode;
 
 public class MainActivity extends ParentNavigationActivity {
 
-    TextView resultField; // текстовое поле для вывода результата
-    TextView numberField;   // поле для ввода числа
-    TextView operationField;    // текстовое поле для вывода знака операции
+    TextView formulaField; // текстовое поле для вывода формулы
+    TextView resultField;    // текстовое поле для вывода результата
     Double operand = null;  // операнд операции
     String lastOperation = "="; // последняя операция
 
@@ -20,9 +19,8 @@ public class MainActivity extends ParentNavigationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        resultField = (TextView) findViewById(R.id.resultField);
-        numberField = (TextView) findViewById(R.id.numberField);
-        operationField = (TextView) findViewById(R.id.operationField);
+        formulaField = (TextView) findViewById(R.id.formula);
+        resultField = (TextView) findViewById(R.id.result);
     }
 
     @Override
