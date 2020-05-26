@@ -1,6 +1,9 @@
-package com.sssemion.calculator;
+package com.sssemion.calculator.activities;
 
 import android.os.Bundle;
+
+import com.sssemion.calculator.nav.ParentNavigationActivity;
+import com.sssemion.calculator.R;
 
 public class EngineerActivity extends ParentNavigationActivity {
     @Override

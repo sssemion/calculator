@@ -1,9 +1,11 @@
-package com.sssemion.calculator;
+package com.sssemion.calculator.nav;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.sssemion.calculator.R;
 
 public class NavigationLayout extends RelativeLayout
 {

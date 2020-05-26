@@ -24,4 +24,5 @@
     <string name="digit0">0</string>
     <string name="operationAdd">+</string>
     <string name="operationEquals">=</string>
+    <string name="divide_by_zero_error">Ошибка: деление на 0</string>
 </resources>

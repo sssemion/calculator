@@ -10,9 +10,10 @@
 
     <style name="CalcButton" parent="Widget.AppCompat.Button">
         <item name="android:layout_gravity">fill</item>
-        <item name="android:maxWidth">0dp</item>
-        <item name="android:minWidth">0dp</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
     </style>
 
 </resources>
