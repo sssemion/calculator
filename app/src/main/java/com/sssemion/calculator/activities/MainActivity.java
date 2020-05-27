@@ -51,6 +51,14 @@ public class MainActivity extends ParentNavigationActivity implements Calculator
         calc.onNumberClick(view);
     }
 
+    public void onEClick(View view){
+        calc.onEClick(view);
+    }
+
+    public void onPIClick(View view){
+        calc.onPIClick(view);
+    }
+
     public void onBackspaceClick(View view) {
         calc.handleBackspace();
     }

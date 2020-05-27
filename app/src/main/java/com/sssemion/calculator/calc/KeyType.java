@@ -2,6 +2,7 @@ package com.sssemion.calculator.calc;
 
 public enum KeyType {
     EQUALS, PLUS, MINUS, MULTIPLY, DIVIDE, PERCENT, POWER, ROOT, DECIMAL, CLEAR, RESET, FACTORIAL,
+    COS, SIN, TG, CTG, LG,
 
     DIGIT, ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
 }

@@ -2,12 +2,15 @@ package com.sssemion.calculator.calc;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.sssemion.calculator.R;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -33,14 +36,14 @@ public class MainCalculator {
         this.context = context;
     }
 
-    public void handleOperation (View view) {
+    public void handleOperation(View view) {
         KeyType operation = getOperationBySign(((Button) view).getText().toString());
         if (lastKey == KeyType.DIGIT && lastOperation != null && operation == KeyType.PERCENT) {
             KeyType tempOp = lastOperation;
             handlePercent();
             lastKey = tempOp;
             lastOperation = tempOp;
-        } else if (lastKey == KeyType.DIGIT && operation != KeyType.ROOT && operation != KeyType.FACTORIAL) {
+        } else if (lastKey == KeyType.DIGIT && operation != KeyType.ROOT && operation != KeyType.FACTORIAL && operation != KeyType.SIN && operation != KeyType.COS && operation != KeyType.LG) {
             handleResult();
         }
 
@@ -48,7 +51,7 @@ public class MainCalculator {
         lastKey = operation;
         lastOperation = operation;
 
-        if (operation == KeyType.ROOT || operation == KeyType.FACTORIAL) {
+        if (operation == KeyType.ROOT || operation == KeyType.FACTORIAL || operation == KeyType.SIN || operation == KeyType.COS || operation == KeyType.LG) {
             baseValue = parseDouble(displayedNumber);
             calculateResult();
             resetValue = false;
@@ -75,6 +78,9 @@ public class MainCalculator {
         if (lastOperation == null)
             return;
         Double result = Operation.binaryOperation(lastOperation, baseValue, secondValue);
+        if (result == null) {
+            result = Operation.unaryOperation(lastOperation, baseValue);
+        }
         if (result != null) {
             updateResult(result);
         }
@@ -99,9 +105,19 @@ public class MainCalculator {
         String sign = getSign(lastOperation);
 
         switch (sign) {
-            case "√": setFormula(sign + first);
-            case "!": setFormula(first + sign);
-            case "": break;
+            case "√":
+                setFormula(sign + first);
+                break;
+            case "!":
+                setFormula(first + sign);
+                break;
+            case "":
+                break;
+            case "sin":
+            case "cos":
+            case "lg":
+                setFormula(sign + "(" + first + ")");
+                break;
             default: {
                 if (secondValue == 0.0 && sign.equals("/")) {
                     Toast.makeText(context, context.getString(R.string.divide_by_zero_error),
@@ -125,29 +141,67 @@ public class MainCalculator {
         if (operation == null)
             return "";
         switch (operation) {
-            case PLUS: return "+";
-            case MINUS: return "-";
-            case MULTIPLY: return "*";
-            case DIVIDE: return "/";
-            case PERCENT: return "%";
-            case POWER: return "^";
-            case ROOT: return "√";
-            case FACTORIAL: return "!";
-            default: return "";
+            case PLUS:
+                return "+";
+            case MINUS:
+                return "-";
+            case MULTIPLY:
+                return "*";
+            case DIVIDE:
+                return "/";
+            case PERCENT:
+                return "%";
+            case POWER:
+                return "^";
+            case ROOT:
+                return "√";
+            case FACTORIAL:
+                return "!";
+            case SIN:
+                return "sin";
+            case COS:
+                return "cos";
+            case TG:
+                return "tg";
+            case CTG:
+                return "ctg";
+            case LG:
+                return "lg";
+            default:
+                return "";
         }
     }
 
     private KeyType getOperationBySign(String sign) {
         switch (sign) {
-            case "+": return KeyType.PLUS;
-            case "-": return KeyType.MINUS;
-            case "*": return KeyType.MULTIPLY;
-            case "/": return KeyType.DIVIDE;
-            case "%": return KeyType.PERCENT;
-            case "^": return KeyType.POWER;
-            case "√": return KeyType.ROOT;
-            case "!": return KeyType.FACTORIAL;
-            default: return null;
+            case "+":
+                return KeyType.PLUS;
+            case "-":
+                return KeyType.MINUS;
+            case "*":
+                return KeyType.MULTIPLY;
+            case "/":
+                return KeyType.DIVIDE;
+            case "%":
+                return KeyType.PERCENT;
+            case "^":
+                return KeyType.POWER;
+            case "√":
+                return KeyType.ROOT;
+            case "!":
+                return KeyType.FACTORIAL;
+            case "sin":
+                return KeyType.SIN;
+            case "cos":
+                return KeyType.COS;
+            case "tg":
+                return KeyType.TG;
+            case "ctg":
+                return KeyType.CTG;
+            case "lg":
+                return KeyType.LG;
+            default:
+                return null;
         }
     }
 
@@ -161,13 +215,27 @@ public class MainCalculator {
         calc.setValue(formatString(displayedNumber), context);
     }
 
+    public void addE() {
+        BigDecimal bd = new BigDecimal(Double.toString(Math.E));
+        double out = bd.setScale(4, RoundingMode.DOWN).doubleValue();
+        displayedNumber += Double.toString(out);
+        calc.setValue(formatString(displayedNumber), context);
+    }
+
+    public void addPI() {
+        BigDecimal bd = new BigDecimal(Double.toString(Math.PI));
+        double out = bd.setScale(4, RoundingMode.DOWN).doubleValue();
+        displayedNumber += Double.toString(out);
+        calc.setValue(formatString(displayedNumber), context);
+    }
+
     private String formatString(String str) {
         if (str.contains(","))
             return str;
         double val = parseDouble(str);
         return formatDouble(val);
     }
-    
+
     private String formatDouble(double val) {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
         symbols.setDecimalSeparator(',');
@@ -219,6 +287,25 @@ public class MainCalculator {
             zeroClicked();
         else
             addDigit(Integer.parseInt(button.getText().toString()));
+    }
+
+    public void onEClick(View view) {
+
+        if (lastKey == KeyType.EQUALS)
+            lastOperation = KeyType.EQUALS;
+
+        lastKey = KeyType.DIGIT;
+        resetValueIfNeeded();
+            addE();
+    }
+
+    public void onPIClick(View view) {
+        if (lastKey == KeyType.EQUALS)
+            lastOperation = KeyType.EQUALS;
+
+        lastKey = KeyType.DIGIT;
+        resetValueIfNeeded();
+        addPI();
     }
 
     public void handleBackspace() {

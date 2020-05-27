@@ -22,7 +22,24 @@
     <string name="operationSubtract">-</string>
     <string name="signComma">,</string>
     <string name="digit0">0</string>
+    <string name="digitPi">pi</string>
+    <string name="digitE">e</string>
     <string name="operationAdd">+</string>
     <string name="operationEquals">=</string>
     <string name="divide_by_zero_error">Ошибка: деление на 0</string>
+    <string name="operationSin">sin</string>
+    <string name="operationCos">cos</string>
+    <string name="operationTg">tg</string>
+    <string name="operationCtg">ctg</string>
+    <string name="operationFactorial">!</string>
+    <string name="operationRoot">√</string>
+    <string name="operationPower">^</string>
+    <string name="operationReverse">1/x</string>
+    <string name="operationPowerOf2">2^x</string>
+    <string name="operationLg">lg</string>
+    <string name="operationLn">ln</string>
+    <string name="operation">pi</string>
+    <string name="operationPowerOf10">10^x</string>
+    <string name="switchDeg">deg</string>
+    <string name="switchRad">rad</string>
 </resources>

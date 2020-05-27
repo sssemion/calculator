@@ -17,6 +17,11 @@ public class Operation {
         switch (operation) {
             case ROOT: return Math.sqrt(a);
             case FACTORIAL: return factorial(a);
+            case SIN: return Math.sin(Math.toRadians(a));
+            case COS: return Math.cos(Math.toRadians(a));
+            case TG: return Math.tan(Math.toRadians(a));
+            case CTG: return 1 / Math.tan(Math.toRadians(a));
+            case LG: return Math.log10(a);
             default: return null;
         }
     }
