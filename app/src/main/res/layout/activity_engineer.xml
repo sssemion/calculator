@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:orientation="vertical">
 
                 <TextView
@@ -65,23 +65,23 @@
 
 
                 <Button
-                    style="@style/CalcButton"
-                    android:onClick="onSwitchDegClick"
+                    style="@style/SecondaryOperation"
+                    android:onClick="onSwitchDegRadClick"
                     android:text="@string/switchDeg"
                     tools:ignore="OnClick" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onEClick"
                     android:text="@string/digitE" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onPIClick"
                     android:text="@string/digitPi" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onResetClick"
                     android:text="@string/operationClear" />
 
@@ -92,35 +92,66 @@
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
                     android:onClick="onBackspaceClick"
-                    android:src="@drawable/ic_backspace"
+                    android:src="@drawable/ic_backspace_bold"
+                    android:tint="@color/colorPrimary"
                     tools:ignore="ContentDescription" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
                     android:text="@string/operationSin" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
                     android:text="@string/operationCos" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
                     android:text="@string/operationTg" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
                     android:text="@string/operationCtg" />
 
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onOperationClick"
                     android:text="@string/operationPercent" />
 
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationLn" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationRoot" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationFactorial" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationPower" />
+
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationDivide" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationLg" />
 
                 <Button
                     style="@style/CalcButton"
@@ -138,15 +169,14 @@
                     android:text="@string/digit9" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationDivide" />
+                    android:text="@string/operationMultiply" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationRoot" />
-
+                    android:text="@string/operationPowerOf2" />
 
                 <Button
                     style="@style/CalcButton"
@@ -164,14 +194,14 @@
                     android:text="@string/digit6" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationMultiply" />
+                    android:text="@string/operationSubtract" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationPower" />
+                    android:text="@string/operationPowerOf10" />
 
                 <Button
                     style="@style/CalcButton"
@@ -189,15 +219,14 @@
                     android:text="@string/digit3" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationSubtract" />
+                    android:text="@string/operationAdd" />
 
                 <Button
-                    style="@style/CalcButton"
+                    style="@style/SecondaryOperation"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationLg" />
-
+                    android:text="@string/operationReverse" />
 
                 <Button
                     style="@style/CalcButton"
@@ -215,12 +244,7 @@
                     android:text="@string/signComma" />
 
                 <Button
-                    style="@style/CalcButton"
-                    android:onClick="onOperationClick"
-                    android:text="@string/operationAdd" />
-
-                <Button
-                    style="@style/CalcButton"
+                    style="@style/PrimaryOperation"
                     android:onClick="onEqualsClick"
                     android:text="@string/operationEquals" />
 

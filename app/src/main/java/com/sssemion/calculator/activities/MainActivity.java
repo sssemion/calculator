@@ -2,6 +2,7 @@ package com.sssemion.calculator.activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ public class MainActivity extends ParentNavigationActivity implements Calculator
     TextView formulaField; // текстовое поле для вывода формулы
     TextView resultField;    // текстовое поле для вывода результата
 
-    MainCalculator calc;
+    private MainCalculator calc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +52,6 @@ public class MainActivity extends ParentNavigationActivity implements Calculator
         calc.onNumberClick(view);
     }
 
-    public void onEClick(View view){
-        calc.onEClick(view);
-    }
-
-    public void onPIClick(View view){
-        calc.onPIClick(view);
-    }
-
     public void onBackspaceClick(View view) {
         calc.handleBackspace();
     }
@@ -78,6 +71,11 @@ public class MainActivity extends ParentNavigationActivity implements Calculator
 
     @Override
     public void setFormula(String value, Context context) {
+        formulaField.setText(value);
+    }
+
+    @Override
+    public void setFormula(Spanned value, Context context) {
         formulaField.setText(value);
     }
 }

@@ -17,4 +17,13 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="PrimaryOperation" parent="CalcButton">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SecondaryOperation" parent="CalcButton">
+        <item name="android:textColor">#858585</item>
+    </style>
+
 </resources>
