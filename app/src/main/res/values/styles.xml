@@ -23,7 +23,19 @@
     </style>
 
     <style name="SecondaryOperation" parent="CalcButton">
-        <item name="android:textColor">#858585</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
+    <style name="NumeralSystemView" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton_selector</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">10</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:maxLines">1</item>
     </style>
 
 </resources>

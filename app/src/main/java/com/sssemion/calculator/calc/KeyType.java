@@ -14,6 +14,9 @@ public enum KeyType {
 
     DEG, RAD,
 
+    LSHIFT(true), RSHIFT(true),
+    AND(true), OR(true), XOR(true),
+
     DIGIT;
 
     private Boolean binaryOperation;

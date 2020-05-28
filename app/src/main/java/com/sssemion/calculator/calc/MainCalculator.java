@@ -154,7 +154,7 @@ public class MainCalculator {
         displayedFormula = value;
     }
 
-    private void addDigit(int number) {
+    protected void addDigit(int number) {
         displayedNumber += Integer.toString(number);
         calc.setValue(formatString(displayedNumber), context);
     }
@@ -197,7 +197,7 @@ public class MainCalculator {
         calc.setValue(displayedNumber, context);
     }
 
-    private void zeroClicked() {
+    void zeroClicked() {
         if (!displayedNumber.equals("0"))
             addDigit(0);
     }
@@ -253,7 +253,7 @@ public class MainCalculator {
         calc.setValue(displayedNumber, context);
     }
 
-    private void resetValues() {
+    void resetValues() {
         baseValue = 0.0;
         secondValue = 0.0;
         resetValue = false;

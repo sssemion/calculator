@@ -14,14 +14,269 @@
 
         <include layout="@layout/toolbar" />
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/activity_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is dev activity"
-            android:textAlignment="center"
-            android:layout_centerVertical="true"
-            android:textColor="#000"
-            android:textSize="24dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="?android:actionBarSize"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="233dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/formula"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="end|bottom"
+                    android:maxLines="1"
+                    android:textSize="@dimen/formula_text_size"
+                    android:textAllCaps="true"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center_vertical|end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/display_text_size"
+                    tools:text="0"
+                    android:textAllCaps="true"/>
+
+                <RadioGroup
+                    android:id="@+id/numeralSystemsGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    tools:ignore="RtlHardcoded">
+
+                    <RadioButton
+                        android:id="@+id/hexSystem"
+                        style="@style/NumeralSystemView"
+                        android:drawableLeft="@drawable/ic_hex" />
+
+                    <RadioButton
+                        android:id="@+id/decSystem"
+                        style="@style/NumeralSystemView"
+                        android:drawableLeft="@drawable/ic_dec"
+                        tools:ignore="RtlHardcoded" />
+
+                    <RadioButton
+                        android:id="@+id/octSystem"
+                        style="@style/NumeralSystemView"
+                        android:drawableLeft="@drawable/ic_oct"
+                        tools:ignore="RtlHardcoded" />
+
+                    <RadioButton
+                        android:id="@+id/binSystem"
+                        style="@style/NumeralSystemView"
+                        android:drawableLeft="@drawable/ic_bin"
+                        tools:ignore="RtlHardcoded" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="3"
+                android:alignmentMode="alignMargins"
+                android:columnCount="5"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/digitA"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitA" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationLeftShift" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationRightShift" />
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onResetClick"
+                    android:text="@string/operationClear" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:onClick="onBackspaceClick"
+                    android:src="@drawable/ic_backspace_bold"
+                    android:tint="@color/colorPrimary"
+                    tools:ignore="ContentDescription" />
+
+
+                <Button
+                    android:id="@+id/digitB"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitB" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationAND" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationOR" />
+
+                <Button
+                    style="@style/SecondaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationXOR" />
+
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationDivide" />
+
+                <Button
+                    android:id="@+id/digitC"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitC" />
+
+                <Button
+                    android:id="@+id/digit7"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit7" />
+
+                <Button
+                    android:id="@+id/digit8"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit8" />
+
+                <Button
+                    android:id="@+id/digit9"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit9" />
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationMultiply" />
+
+                <Button
+                    android:id="@+id/digitD"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitD" />
+
+                <Button
+                    android:id="@+id/digit4"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit4" />
+
+                <Button
+                    android:id="@+id/digit5"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit5" />
+
+                <Button
+                    android:id="@+id/digit6"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit6" />
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationSubtract" />
+
+                <Button
+                    android:id="@+id/digitE"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitE" />
+
+                <Button
+                    android:id="@+id/digit1"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit1" />
+
+                <Button
+                    android:id="@+id/digit2"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit2" />
+
+                <Button
+                    android:id="@+id/digit3"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit3" />
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onOperationClick"
+                    android:text="@string/operationAdd" />
+
+                <Button
+                    android:id="@+id/digitF"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digitF" />
+
+                <Button
+                    style="@style/CalcButton"
+                    android:onClick="onSignSwitchClick"
+                    android:text="@string/operationSignSwitch" />
+
+                <Button
+                    android:id="@+id/digit0"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/digit0" />
+
+                <Button
+                    android:enabled="false"
+                    style="@style/CalcButton"
+                    android:onClick="onNumberClick"
+                    android:text="@string/signComma" />
+
+                <Button
+                    style="@style/PrimaryOperation"
+                    android:onClick="onEqualsClick"
+                    android:text="@string/operationEquals" />
+
+            </GridLayout>
+        </LinearLayout>
+
 
     </RelativeLayout>
 

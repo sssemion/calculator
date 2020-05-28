@@ -39,7 +39,8 @@
                     android:fontFamily="sans-serif-light"
                     android:gravity="end|bottom"
                     android:maxLines="1"
-                    android:textSize="@dimen/formula_text_size" />
+                    android:textSize="@dimen/formula_text_size"
+                    tools:ignore="NestedWeights" />
 
                 <TextView
                     android:id="@+id/result"
@@ -73,12 +74,12 @@
                 <Button
                     style="@style/SecondaryOperation"
                     android:onClick="onEClick"
-                    android:text="@string/digitE" />
+                    android:text="@string/constE" />
 
                 <Button
                     style="@style/SecondaryOperation"
                     android:onClick="onPIClick"
-                    android:text="@string/digitPi" />
+                    android:text="@string/constPi" />
 
                 <Button
                     style="@style/PrimaryOperation"

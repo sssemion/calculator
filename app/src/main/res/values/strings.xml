@@ -22,8 +22,8 @@
     <string name="operationSubtract">-</string>
     <string name="signComma">,</string>
     <string name="digit0">0</string>
-    <string name="digitPi">π</string>
-    <string name="digitE">e</string>
+    <string name="constPi">π</string>
+    <string name="constE">e</string>
     <string name="operationAdd">+</string>
     <string name="operationEquals">=</string>
     <string name="divide_by_zero_error">Ошибка: деление на 0</string>
@@ -46,4 +46,15 @@
     <string name="operationPowerOf10">10<sup><small>x</small></sup></string>
     <string name="switchDeg">DEG</string>
     <string name="switchRad">RAD</string>
+    <string name="digitA">A</string>
+    <string name="digitB">B</string>
+    <string name="digitC">C</string>
+    <string name="digitD">D</string>
+    <string name="digitE">E</string>
+    <string name="digitF">F</string>
+    <string name="operationAND">AND</string>
+    <string name="operationOR">OR</string>
+    <string name="operationXOR">XOR</string>
+    <string name="operationLeftShift"><![CDATA[<<]]></string>
+    <string name="operationRightShift"><![CDATA[>>]]></string>
 </resources>

@@ -18,6 +18,20 @@ class Operation {
         }
     }
 
+    static Long binaryOperation(KeyType operation, long a, long b) {
+        Double result = binaryOperation(operation, (double) a, (double) b);
+        if (result != null)
+            return (long) Math.floor(result);
+        switch (operation) {
+            case LSHIFT: return a << b;
+            case RSHIFT: return a >> b;
+            case AND: return a & b;
+            case OR: return a | b;
+            case XOR: return a ^ b;
+            default: return null;
+        }
+    }
+
     static Double unaryOperation(KeyType operation, double a) {
         return unaryOperation(operation, a, KeyType.DEG);
     }

@@ -252,7 +252,6 @@ public class EngineerCalculator extends MainCalculator {
 
     public void onSwitchDegRadClick(View view) {
         Button button = (Button) view;
-        KeyType oldUnit = currentMeasureUnit;
         if (currentMeasureUnit == KeyType.DEG) {
             currentMeasureUnit = KeyType.RAD;
             button.setText(context.getString(R.string.switchRad));
