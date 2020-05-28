@@ -115,6 +115,8 @@ class Operation {
             return result;
         } else if (a < 0) {
             throw new FactorialOfNegativeNumber();
+        }else if (a >=100){
+            return 0;
         }
         for (int i = 2; i <= a; i++)
             result *= i;
