@@ -5,6 +5,8 @@ import com.sssemion.calculator.calc.exceptions.FactorialOfNegativeNumber;
 import com.sssemion.calculator.calc.exceptions.SQRTOfNegativeNumber;
 import com.sssemion.calculator.calc.exceptions.TrigonometricValueIsNotDefined;
 
+import static java.lang.Math.abs;
+
 class Operation {
     static Double binaryOperation(KeyType operation, double a, double b) {
         switch (operation) {
@@ -69,18 +71,21 @@ class Operation {
         if (measureUnit == KeyType.DEG)
             a = Math.toRadians(a);
         a %= 2 * Math.PI;
-        if (Math.PI / 2 - a < 0.001 || Math.PI * 3 / 2 - a < 0.001)
+        if (abs(Math.PI / 2 - a) < 0.0001 || abs(Math.PI * 3 / 2 - a) < 0.0001)
             throw new TrigonometricValueIsNotDefined();
-        return Math.tan(a);
+        double tan = abs(Math.tan(a));
+        return tan < 0.00000000001 ? 0 : tan;
+
     }
 
     private static Double ctg(double a, KeyType measureUnit) {
         if (measureUnit == KeyType.DEG)
             a = Math.toRadians(a);
         a %= 2 * Math.PI;
-        if (0 - a < 0.001 || Math.PI - a < 0.001 || Math.PI * 2 - a < 0.001)
+        if (abs(0 - a) < 0.0001 || abs(Math.PI - a) < 0.0001 || abs(Math.PI * 2 - a) < 0.0001)
             throw new TrigonometricValueIsNotDefined();
-        return Math.tan(a);
+        double ctg = abs(1 / Math.tan(a));
+        return ctg < 0.00000000001 ? 0 : ctg;
     }
 
     private static Double root(double a) {
