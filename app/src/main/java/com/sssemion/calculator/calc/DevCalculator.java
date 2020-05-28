@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.sssemion.calculator.R;
 
 public class DevCalculator extends MainCalculator {
-    private NumeralSystem currentNumeralSystem;
+    private NumeralSystem currentNumeralSystem = NumeralSystem.DEC;
 
     private long baseValue;
     private long secondValue;
@@ -23,8 +23,9 @@ public class DevCalculator extends MainCalculator {
     }
 
     public void setCurrentNumeralSystem(NumeralSystem numSys) {
+        long value = parseInt(displayedNumber);
         this.currentNumeralSystem = numSys;
-        updateResult(baseValue);
+        updateResult(value, false);
     }
 
     @Override
@@ -119,13 +120,23 @@ public class DevCalculator extends MainCalculator {
         String first = formatInt(baseValue);
         String second = formatInt(secondValue);
         String sign = getSign(lastOperation);
-
-        if (!"".equals(sign)) {
-            if (secondValue == 0 && sign.equals("/")) {
-                Toast.makeText(context, context.getString(R.string.divide_by_zero_error),
-                        Toast.LENGTH_SHORT).show();
+        if (lastOperation == null)
+            return;
+        switch (lastOperation) {
+            case AND:
+            case OR:
+            case XOR:
+                setFormula(first + " " + sign + " " + second);
+                break;
+            default: {
+                if (!"".equals(sign)) {
+                    if (secondValue == 0 && sign.equals("/")) {
+                        Toast.makeText(context, context.getString(R.string.divide_by_zero_error),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    setFormula(first + sign + second);
+                }
             }
-            setFormula(first + sign + second);
         }
     }
 

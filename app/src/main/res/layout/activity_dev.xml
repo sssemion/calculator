@@ -20,13 +20,16 @@
             android:layout_height="match_parent"
             android:layout_marginTop="?android:actionBarSize"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="233dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="3"
@@ -40,8 +43,8 @@
                     android:fontFamily="sans-serif-light"
                     android:gravity="end|bottom"
                     android:maxLines="1"
-                    android:textSize="@dimen/formula_text_size"
                     android:textAllCaps="true"
+                    android:textSize="@dimen/formula_text_size"
                     tools:ignore="NestedWeights" />
 
                 <TextView
@@ -52,9 +55,12 @@
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_vertical|end"
                     android:maxLines="1"
+                    android:textAllCaps="true"
                     android:textSize="@dimen/display_text_size"
-                    tools:text="0"
-                    android:textAllCaps="true"/>
+                    android:autoSizeMinTextSize="@dimen/button_text_size"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMaxTextSize="@dimen/display_text_size"
+                    tools:text="0" />
 
                 <RadioGroup
                     android:id="@+id/numeralSystemsGroup"
@@ -92,9 +98,9 @@
 
             <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="3"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_weight="7"
                 android:alignmentMode="alignMargins"
                 android:columnCount="5"
                 android:orientation="horizontal">
@@ -131,7 +137,6 @@
                     android:tint="@color/colorPrimary"
                     tools:ignore="ContentDescription" />
 
-
                 <Button
                     android:id="@+id/digitB"
                     style="@style/CalcButton"
@@ -140,19 +145,24 @@
 
                 <Button
                     style="@style/SecondaryOperation"
+                    android:autoSizeMaxTextSize="@dimen/button_text_size_secondary"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationAND" />
+                    android:text="@string/operationAND"
+                    android:textSize="@dimen/button_text_size_secondary" />
 
                 <Button
                     style="@style/SecondaryOperation"
+                    android:autoSizeMaxTextSize="@dimen/button_text_size_secondary"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationOR" />
+                    android:text="@string/operationOR"
+                    android:textSize="@dimen/button_text_size_secondary" />
 
                 <Button
                     style="@style/SecondaryOperation"
+                    android:autoSizeMaxTextSize="@dimen/button_text_size_secondary"
                     android:onClick="onOperationClick"
-                    android:text="@string/operationXOR" />
-
+                    android:text="@string/operationXOR"
+                    android:textSize="@dimen/button_text_size_secondary" />
 
                 <Button
                     style="@style/PrimaryOperation"
@@ -264,8 +274,8 @@
                     android:text="@string/digit0" />
 
                 <Button
-                    android:enabled="false"
                     style="@style/CalcButton"
+                    android:enabled="false"
                     android:onClick="onNumberClick"
                     android:text="@string/signComma" />
 

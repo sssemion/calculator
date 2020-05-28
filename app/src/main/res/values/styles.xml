@@ -11,10 +11,17 @@
     <style name="CalcButton" parent="Widget.AppCompat.Button">
         <item name="android:layout_gravity">fill</item>
         <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:layout_rowWeight">1</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:autoSizeMinTextSize">@dimen/min_button_text_size</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMaxTextSize">@dimen/button_text_size</item>
     </style>
 
     <style name="PrimaryOperation" parent="CalcButton">
@@ -32,8 +39,11 @@
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">10</item>
         <item name="android:paddingStart">10dp</item>
-        <item name="android:drawablePadding">10dp</item>
+        <item name="android:drawablePadding">5dp</item>
         <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:autoSizeMinTextSize">@dimen/min_button_text_size</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMaxTextSize">@dimen/button_text_size</item>
         <item name="textAllCaps">true</item>
         <item name="android:maxLines">1</item>
     </style>
