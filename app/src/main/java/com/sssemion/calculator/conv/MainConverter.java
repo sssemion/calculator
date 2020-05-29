@@ -70,8 +70,8 @@ public class MainConverter {
     private void updateResult() {
         long firstValue = parseInt(displayedFirstValue);
         int nominal = firstCurrency.getNominal();
-        double secondValue = firstValue * nominal * firstCurrency.getValue() / secondCurrency.getNominal() / secondCurrency.getValue();
-        double valueInRubs = firstValue * nominal * firstCurrency.getValue();
+        double secondValue = firstValue * secondCurrency.getNominal() * firstCurrency.getValue() / nominal / secondCurrency.getValue();
+        double valueInRubs = firstValue * firstCurrency.getValue() / nominal;
         conv.setFirstValue(displayedFirstValue, context);
         conv.setSecondValue(String.format("%.2f", secondValue), context);
         conv.setValueInRubs(String.format("%.2f", valueInRubs), context);
@@ -86,7 +86,7 @@ public class MainConverter {
         if (factory == null)
             return;
         factory.setNamespaceAware(true);
-        XmlPullParser currency_data = null;
+        XmlPullParser currency_data;
         try {
             currency_data = factory.newPullParser();
             currency_data.setInput(new FileInputStream(new File(context.getFilesDir(),
@@ -106,7 +106,7 @@ public class MainConverter {
 
         // итерационно обходим xml файл пока не наткнемся на тип события 'конец документа'
         while (eventType != XmlPullParser.END_DOCUMENT) {
-            String name = "";
+            String name;
             // обрабатываем события начала документа
             switch (eventType) {
                 case XmlPullParser.START_DOCUMENT:
@@ -209,6 +209,7 @@ public class MainConverter {
         updateResult();
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class DownloadData extends AsyncTask<String, Void, String> {
 
         @Override
@@ -259,7 +260,7 @@ public class MainConverter {
                 URL url = new URL(urlPath);
                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "windows-1251"));
-                String line = null;
+                String line;
                 while ((line = reader.readLine()) != null) {
                     xmlResult.append(line);
                 }
@@ -304,10 +305,16 @@ public class MainConverter {
     public void setFirstCurrency(int currencyIndex) {
         this.firstCurrency = currencies.get(currencyIndex);
         conv.setFirstCurrencyName(firstCurrency.getName(), context);
+        try {
+            updateResult();
+        } catch (NullPointerException ignored) {}
     }
 
     public void setSecondCurrency(int currencyIndex) {
         this.secondCurrency = currencies.get(currencyIndex);
         conv.setSecondCurrencyName(secondCurrency.getName(), context);
+        try {
+            updateResult();
+        } catch (NullPointerException ignored) {}
     }
 }
