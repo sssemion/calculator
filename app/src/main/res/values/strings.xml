@@ -57,4 +57,7 @@
     <string name="operationXOR">XOR</string>
     <string name="operationLeftShift"><![CDATA[<<]]></string>
     <string name="operationRightShift"><![CDATA[>>]]></string>
+    <string name="currency_converter">Конвертер валют</string>
+    <string name="russianRub">Российских рублей</string>
+    <string name="RUB">RUB</string>
 </resources>
