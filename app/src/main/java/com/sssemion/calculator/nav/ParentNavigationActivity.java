@@ -14,6 +14,7 @@ import com.sssemion.calculator.R;
 import com.sssemion.calculator.activities.DevActivity;
 import com.sssemion.calculator.activities.EngineerActivity;
 import com.sssemion.calculator.activities.MainActivity;
+import com.sssemion.calculator.activities.CurrencyActivity;
 
 public class ParentNavigationActivity extends AppCompatActivity {
     NavigationLayout navigationLayout;
@@ -63,6 +64,11 @@ public class ParentNavigationActivity extends AppCompatActivity {
                 break;
             case R.id.nav_engineer:
                 i = new Intent(ParentNavigationActivity.this, EngineerActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                break;
+            case R.id.nav_currency_conv:
+                i = new Intent(ParentNavigationActivity.this, CurrencyActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;

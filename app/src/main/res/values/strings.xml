@@ -42,4 +42,7 @@
     <string name="operationPowerOf10">10^x</string>
     <string name="switchDeg">deg</string>
     <string name="switchRad">rad</string>
+    <string name="currency_converter">Конвертер валют</string>
+    <string name="russianRub">Российских рублей</string>
+    <string name="RUB">RUB</string>
 </resources>

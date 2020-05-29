@@ -17,4 +17,28 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="CurrencySpinner" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/currencyCharCodeSize</item>
+        <item name="autoSizeMinTextSize">@dimen/currencyCharCodeSize</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMaxTextSize">72sp</item>
+    </style>
+
+    <style name="ValueTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:textSize">@dimen/currencyCharCodeSize</item>
+        <item name="android:autoSizeMinTextSize">12sp</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMaxTextSize">@dimen/currencyCharCodeSize</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="NameTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:maxLines">1</item>
+    </style>
 </resources>
