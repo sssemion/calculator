@@ -118,7 +118,7 @@ public class MainConverter {
                     } else if (name.equals("ValCurs")) {
                         try {
                             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.US);
-                            lastUpdated = format.parse("29.05.2020");
+                            lastUpdated = format.parse(currency_data.getAttributeValue(null, "Date"));
                         } catch (ParseException ignored) {
                         }
                     } else if (currency != null) {
@@ -216,12 +216,21 @@ public class MainConverter {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             File file = new File(context.getFilesDir(), "currency_data.xml");
+            if (s == null && !file.canRead()) {
+                Toast.makeText(context, "Не удалось загрузить данные", Toast.LENGTH_SHORT).show();
+
+                return;
+            }
             StringBuilder oldData = new StringBuilder();
             try {
-                FileReader reader = new FileReader(file);
-                int c;
-                while ((c = reader.read()) != -1) {
-                    oldData.append((char) c);
+                if (file.canRead()) {
+                    // Сохраняем последние данные в файле в переменную oldData, чтобы в случае ошибки
+                    // вернуть сохраненные данные
+                    FileReader reader = new FileReader(file);
+                    int c;
+                    while ((c = reader.read()) != -1) {
+                        oldData.append((char) c);
+                    }
                 }
                 FileWriter writer = new FileWriter(file, false);
                 writer.write(s);
@@ -307,7 +316,8 @@ public class MainConverter {
         conv.setFirstCurrencyName(firstCurrency.getName(), context);
         try {
             updateResult();
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException ignored) {
+        }
     }
 
     public void setSecondCurrency(int currencyIndex) {
@@ -315,6 +325,7 @@ public class MainConverter {
         conv.setSecondCurrencyName(secondCurrency.getName(), context);
         try {
             updateResult();
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException ignored) {
+        }
     }
 }
